@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8" />
+		<title>芷芷宝贝！！(*╹▽╹*)</title>
+		<meta charset="utf-8" />
+	</head>
+	<script src= "./js/jquery.min.js" ></script>
+	<style>
+		body {
+			background: linear-gradient(
+					to right,
+					#e2b8f7,
+					#d4bafa,
+					#c7bcfb,
+					#b9befb,
+					#acbff9
+			);
+			cursor: crosshair;
+			perspective: 1000px;
+			transform-style: preserve-3d;
+			font-family: 'Pacifico', cursive;
+		}
+		.bubbly-button {
+			font-family: 'Helvetica', 'Arial', sans-serif;
+			display: inline-block;
+			font-size: 1em;
+			padding: 1em 2em;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			-webkit-appearance: none;
+			appearance: none;
+			background-color: #ff0081;
+			color: #fff;
+			border-radius: 50px;
+			border: none;
+			cursor: pointer;
+			position: relative;
+			transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+			box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
+		}
+
+		.bubbly-button:focus {
+			outline: 0;
+		}
+
+		.bubbly-button:after {
+			position: absolute;
+			content: '';
+			display: block;
+			width: 140%;
+			height: 100%;
+			left: -20%;
+			z-index: -1000;
+			transition: all ease-in-out 0.5s;
+			background-repeat: no-repeat;
+		}
+
+		.bubbly-button:before {
+			display: none;
+			top: -75%;
+			background-image: radial-gradient(
+					circle,
+					#ff0081 20%,
+					transparent 20%
+			),
+			radial-gradient(
+					circle,
+					transparent 20%,
+					#ff0081 20%,
+					transparent 30%
+			),
+			radial-gradient(circle, #ff0081 20%, transparent 20%),
+			radial-gradient(circle, #ff0081 20%, transparent 20%),
+			radial-gradient(
+					circle,
+					transparent 10%,
+					#ff0081 15%,
+					transparent 20%
+			),
+			radial-gradient(circle, #ff0081 20%, transparent 20%),
+			radial-gradient(circle, #ff0081 20%, transparent 20%),
+			radial-gradient(circle, #ff0081 20%, transparent 20%),
+			radial-gradient(circle, #ff0081 20%, transparent 20%);
+			background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%,
+			10% 10%, 15% 15%, 10% 10%, 18% 18%;
+		}
+
+		.bubbly-button:after {
+			display: none;
+			bottom: -75%;
+			background-image: radial-gradient(
+					circle,
+					#ff0081 20%,
+					transparent 20%
+			),
+			radial-gradient(circle, #ff0081 20%, transparent 20%),
+			radial-gradient(
+					circle,
+					transparent 10%,
+					#ff0081 15%,
+					transparent 20%
+			),
+			radial-gradient(circle, #ff0081 20%, transparent 20%),
+			radial-gradient(circle, #ff0081 20%, transparent 20%),
+			radial-gradient(circle, #ff0081 20%, transparent 20%),
+			radial-gradient(circle, #ff0081 20%, transparent 20%);
+			background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%,
+			10% 10%, 20% 20%;
+		}
+
+		.bubbly-button:active {
+			transform: scale(0.9);
+			background-color: #e60074;
+			box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
+		}
+
+		.bubbly-button.animate:before {
+			display: block;
+			animation: topBubbles ease-in-out 0.75s forwards;
+		}
+
+		.bubbly-button.animate:after {
+			display: block;
+			animation: bottomBubbles ease-in-out 0.75s forwards;
+		}
+	</style>
+	<body>
+		<audio
+			loop="loop"
+			preload="auto"
+			src="./music/happybirthday.mp3"
+			id="vd"
+		></audio>
+		<audio
+			autoplay="autoplay"
+			preload="auto"
+			src="./music/first.mp3"
+			id="vs"
+			onended="replay()"
+		></audio>
+		<img  src = "./images/loveyou.jpg"  id = "images1"
+		width = "400px"
+		height = "600x">
+		<a
+				href="./images/loveyou.jpg"······
+				download="./images/loveyou.jpg"
+		>
+			<button class="bubbly-button">
+				点我放大看看,有惊喜!(o゜▽゜)o☆
+			</button>
+		</a>
+	</body>
+	<script>
+		var tag;
+		window.onload = function(){
+			tag=setInterval("toggleSound()",100);
+		}
+		function toggleSound() {
+			tag=clearInterval(tag);
+			var music = document.getElementById("vs");//获取ID
+			if (music.paused) { //判读是否播放
+				music.paused=false;
+				music.play(); //没有就播放
+			}
+		}
+		function replay() {
+			var music = document.getElementById('vs') //获取ID
+			if (music.paused) {
+				//判读是否播放
+				music = document.getElementById('vd')
+				music.play() //没有就播放
+			}
+		}
+	</script>
+</html>
